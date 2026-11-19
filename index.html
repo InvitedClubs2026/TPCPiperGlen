@@ -355,6 +355,27 @@ footer .tx2{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:u
 .cboxes .cbox:nth-child(2){transition-delay:.08s}.cboxes .cbox:nth-child(3){transition-delay:.16s}.cboxes .cbox:nth-child(4){transition-delay:.24s}.cboxes .cbox:nth-child(5){transition-delay:.32s}
 @media (max-width:900px){.cboxes{grid-template-columns:1fr 1fr}.cbox{min-height:auto}.coursehero .cinner{padding-top:88px}}
 @media (max-width:520px){.cboxes{grid-template-columns:1fr}}
+
+/* mobile hamburger */
+section[id]{scroll-margin-top:64px}
+.burger{display:none;width:44px;height:44px;border:none;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:0;position:relative;z-index:61}
+.burger span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:transform .35s var(--ease),opacity .25s var(--ease)}
+.burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.mnav{display:none}
+@media (max-width:900px){
+  .burger{display:flex}
+  .mnav{display:flex;position:fixed;inset:0;z-index:49;background:var(--navy-900);flex-direction:column;justify-content:center;padding:96px 32px 48px;gap:6px;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
+  .mnav.open{opacity:1;visibility:visible}
+  .mnav a{font-family:var(--serif);font-size:38px;line-height:1.2;color:#fff;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14);transform:translateY(10px);opacity:0;transition:transform .5s var(--ease),opacity .5s var(--ease)}
+  .mnav.open a{transform:none;opacity:1}
+  .mnav.open a:nth-child(2){transition-delay:.05s}.mnav.open a:nth-child(3){transition-delay:.1s}.mnav.open a:nth-child(4){transition-delay:.15s}
+  .mnav a:active{color:#ff8a92}
+  .mnav-tag{margin-top:32px;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#ff8a92}
+  body.menu-open{overflow:hidden}
+  body.menu-open nav{background:var(--navy-900)}
+}
 </style>
 </head>
 <body>
@@ -366,7 +387,15 @@ footer .tx2{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:u
     <li><a href="#course">The Course</a></li>
     <li><a href="#countdown">The Countdown</a></li>
   </ul>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
 </div></nav>
+<div class="mnav" id="mnav" aria-hidden="true">
+  <a href="#story">The Story</a>
+  <a href="#clubhouse">The Clubhouse</a>
+  <a href="#course">The Course</a>
+  <a href="#countdown">The Countdown</a>
+  <div class="mnav-tag">The Next Chapter Starts Now.</div>
+</div>
 
 <header class="hero dark">
   <div class="photo"><div class="hp hp1" style="background-image:url(./hero-clubhouse-aerial.jpg)"></div><div class="hp hp2" style="background-image:url(./hero-clubhouse-entrance.jpg)"></div></div>
@@ -604,6 +633,12 @@ const lb=document.getElementById('lb'),lbi=lb.querySelector('img'),lbp=lb.queryS
 document.querySelectorAll('.zoomable').forEach(z=>z.addEventListener('click',()=>{lbi.src=z.querySelector('img').src;lbp.textContent=z.dataset.cap||'';lb.classList.add('on')}));
 lb.addEventListener('click',()=>lb.classList.remove('on'));
 addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+
+const bg=document.getElementById('burger'),mn=document.getElementById('mnav');
+function setMenu(o){bg.classList.toggle('open',o);mn.classList.toggle('open',o);document.body.classList.toggle('menu-open',o);bg.setAttribute('aria-expanded',o);bg.setAttribute('aria-label',o?'Close menu':'Open menu');mn.setAttribute('aria-hidden',!o)}
+bg.addEventListener('click',()=>setMenu(!mn.classList.contains('open')));
+mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
 </script>
 </body>
 </html>
