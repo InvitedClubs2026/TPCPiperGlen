@@ -376,6 +376,28 @@ section[id]{scroll-margin-top:64px}
   body.menu-open{overflow:hidden}
   body.menu-open nav{background:var(--navy-900)}
 }
+
+/* white logo, no plate */
+.badge{background:transparent!important;box-shadow:none!important;padding:0!important}
+.badge img{filter:drop-shadow(0 10px 28px rgba(6,20,40,.55))}
+.badge .est{color:#fff;border-top-color:rgba(255,255,255,.35)}
+footer .plate{background:transparent!important;padding:0!important}
+footer .plate img{width:110px}
+/* mobile vertical timeline */
+@media (max-width:900px){
+  .phases,.phases.v2{grid-template-columns:1fr!important;border-top:none;border-left:2px solid var(--red);margin-left:7px}
+  .phase{padding:0 0 36px 28px}
+  .phase:last-child{padding-bottom:4px}
+  .phase::before{top:4px;left:-8px}
+}
+
+.badge img{max-width:240px!important}
+@media (max-width:900px){
+  .badge img{max-width:150px!important}
+  footer .row{flex-direction:column;align-items:center;text-align:center}
+  footer .row > div{text-align:center!important}
+  footer .fine{text-align:center}
+}
 </style>
 </head>
 <body>
@@ -412,7 +434,7 @@ section[id]{scroll-margin-top:64px}
       </div>
     </div>
     <div class="badge">
-      <img src="./tpc-piper-glen-logo.png" alt="TPC Piper Glen">
+      <img src="./tpc-piper-glen-logo-white.png" alt="TPC Piper Glen">
       <div class="est">The Next Chapter</div>
     </div>
   </div>
@@ -615,7 +637,7 @@ section[id]{scroll-margin-top:64px}
 <footer class="dark">
   <div class="wrap">
     <div class="row">
-      <div class="plate"><img src="./tpc-piper-glen-logo.png" alt="TPC Piper Glen"></div>
+      <div class="plate"><img src="./tpc-piper-glen-logo-white.png" alt="TPC Piper Glen"></div>
       <div style="text-align:right"><div class="tx">The Next Chapter Starts Now.</div><div class="tx2">TPC Piper Glen &nbsp;|&nbsp; The Future Is Coming</div></div>
     </div>
     <div class="fine">Renderings are conceptual. Project scope, timing, and amenities are subject to change as design is finalized.</div>
