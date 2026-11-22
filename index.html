@@ -402,6 +402,19 @@ footer .plate img{width:110px}
 /* fitness fade slideshow */
 .img.fade img{opacity:0;transition:opacity 1.6s ease-in-out,transform 7s ease-out;transform:scale(1.06)}
 .img.fade img.on{opacity:1;transform:scale(1)}
+
+/* pool water box */
+.img.pool{overflow:hidden;background:#1c8db3;display:flex;align-items:center;justify-content:center}
+.img.pool::before{display:none}
+.img.pool .water{position:absolute;inset:0;width:100%;height:100%}
+.img.pool::after{content:"";position:absolute;inset:16px;border:1px solid rgba(255,255,255,.45);pointer-events:none}
+.pooltxt{position:relative;text-align:center;padding:32px;color:#fff;text-shadow:0 2px 16px rgba(6,40,70,.45)}
+.pooltxt .eyebrow{color:#fff;opacity:.9}
+.pooltxt h4{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(30px,3vw,42px);line-height:1.15;color:#fff;margin-top:12px}
+
+.feature.poolonly{grid-template-columns:1fr!important;background:transparent!important}
+.feature.poolonly .img.pool{min-height:420px}
+@media (max-width:900px){.feature.poolonly .img.pool{min-height:300px}}
 </style>
 </head>
 <body>
@@ -507,7 +520,7 @@ footer .plate img{width:110px}
         <h2>A Grand <em class="i">First Impression.</em></h2>
       </div>
       <div>
-        <ul class="bul"><li>New entry lounge seating and a statement entry table</li><li>Updated lighting throughout the entry and corridors</li><li>New flooring from the front door through the corridors</li></ul>
+        <ul class="bul"><li>New entry lounge seating and entry table</li><li>Updated lighting throughout the entry and corridors</li><li>New flooring from the front door through the corridors</li></ul>
         
       </div>
     </div>
@@ -520,10 +533,10 @@ footer .plate img{width:110px}
         <div class="txt">
           <div class="eyebrow">Member Dining &amp; Patio</div>
           <h3>Where Great Conversations Become Lasting Memories.</h3>
-          <ul class="bul"><li>A reimagined Bar &amp; Lounge with bar seating and bar-height dining</li><li>A new Member Casual Dining room</li><li>Member Dining with new banquettes, tables and chairs</li><li>Statement chandeliers and wall sconces</li><li>New wallcoverings, millwork and flooring throughout</li><li>Seamless indoor-outdoor flow onto the patio</li></ul>
+          <ul class="bul"><li>A reimagined Bar &amp; Lounge with bar seating and bar-height dining</li><li>A new Member Casual Dining room</li><li>Member Dining with new banquettes, tables and chairs</li><li>New updated lighting</li><li>New wallcoverings, millwork and flooring throughout</li><li>Indoor and outdoor dining that opens onto the patio</li></ul>
           
         </div>
-        <div class="img has zoomable" data-cap="Member Dining"><img src="./member-dining.jpg" alt="Member Dining rendering"><div class="chip">Rendering &middot; Member Dining</div></div>
+        <div class="img has zoomable" data-cap="Member Dining"><img src="./member-dining.jpg" alt="Member Dining rendering"><div class="chip">New Member Dining</div></div>
       </div>
       <div class="pair">
         <div class="img has zoomable" data-cap="Bar &amp; Lounge"><img src="./bar-lounge.jpg" alt="Bar and Lounge rendering"><div class="chip">Rendering &middot; Bar &amp; Lounge</div></div>
@@ -560,7 +573,7 @@ footer .plate img{width:110px}
         <div class="txt">
           <div class="eyebrow">The Pro Shop</div>
           <h3>A Grand New Welcome.</h3>
-          <ul class="bul"><li>Relocated to where your day begins</li><li>New built-in display millwork and sales fixtures</li><li>Pendant lighting, wallcoverings and new carpet</li></ul>
+          <ul class="bul"><li>Relocated to where your day begins</li><li>New built-in display millwork and sales fixtures</li><li>New updated lighting, wallcoverings and carpet</li></ul>
           
         </div>
       </div>
@@ -570,10 +583,15 @@ footer .plate img{width:110px}
         <div class="txt">
           <div class="eyebrow">Ballroom &amp; Member Events</div>
           <h3>Celebrations to Remember.</h3>
-          <ul class="bul"><li>New pre-function lounge for gathering before events</li><li>Statement chandelier and wall sconces</li><li>New wallcoverings and carpet</li><li>New banquet seating</li></ul>
+          <ul class="bul"><li>New pre-function lounge for gathering before events</li><li>New updated lighting</li><li>New wallcoverings and carpet</li><li>New banquet seating</li></ul>
           
         </div>
       </div>
+
+      <div class="feature poolonly rv">
+        <div class="img pool"><svg class="water" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="pw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fb6cf"/><stop offset="1" stop-color="#0f6f97"/></linearGradient><filter id="caustic" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="3"><animate attributeName="baseFrequency" dur="14s" values="0.012 0.02;0.016 0.026;0.012 0.02" repeatCount="indefinite"/></feTurbulence><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 -2.2 1.35"/></filter></defs><rect width="800" height="500" fill="url(#pw)"/><rect width="800" height="500" filter="url(#caustic)" opacity=".5"/></svg><div class="pooltxt"><div class="eyebrow">Coming to the Pool</div><h4>New Pool Furniture &amp; Experience</h4></div></div>
+      </div>
+
     </div>
   </div>
   <div style="height:136px"></div>
